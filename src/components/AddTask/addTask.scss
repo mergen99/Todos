@@ -1,0 +1,13 @@
+.addTask {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  &___icon {
+    background: grey;
+  }
+  &___task {
+    margin-left: 0.35rem;
+    background-color: #f4f4f4;
+    border: none;
+  }
+}

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+.panel {
+  width: 25rem;
+  height: 40rem;
+  background: #f4f4f4;
+  box-shadow: 15.9651px 11.7144px 53.3733px rgba(0, 0, 0, 0.2);
+  margin: 5rem;
+  &___container {
+    padding: 1.875rem;
+  }
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Inter";
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    align-items: center;
+  }
+  &__name {
+    align-self: flex-start;
+    flex: 1;
+  }
+  &__line {
+    border-top: 1px solid rgba(188, 188, 195, 0.44);
+    width: 100%;
+    margin: 0.6rem 1rem;
+  }
+  &__countTasks {
+    margin-left: 0.3rem;
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+    &__count {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.items {
+  display: flex;
+  margin-top: 1.4rem;
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+.task {
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
