@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect, useContext} from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import TodoItem from "./components/TodoItem";
 import Panel from "./components/Panel";
 import PanelHeadline from "./components/PanelHeadline";
 import AddTask from "./components/AddTask";
 import AddCategory from "./components/AddCategory";
+import { Context } from "../src/context";
 
 const initialState = [
   {
@@ -73,7 +74,7 @@ function App() {
   const [inputValue, setInputValue] = useState("Write a task...");
   const [categories, setCategories] = useState(defaultCategories);
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     console.log("sfasfasfsaf");
     const stringData = localStorage.getItem("todos");
     const strData = localStorage.getItem("categories");
@@ -155,29 +156,30 @@ function App() {
   };
 
   return (
-    <Panel>
-      {Object.keys(categories).map((name) => (
-        <>
-          <PanelHeadline
-            name={name}
-            onClick={() => toggleList(name)}
-            categories={categories}
-            countTasks={countTasks(name)}
-            countUnresolvedTasks={countUnresolvedTasks(name)}
-          />
-          {categories[name] &&
-            getTasksByCategories(name).map((todo) => (
-              <TodoItem
-                key={todo.id}
-                changeTodo={changeTodo}
-                todo={todo}
-                deleteTask={deleteTask}
-              />
-            ))}
-        </>
-      ))}
+    <Context.Provider value={{deleteTask,toggleList }}>
+      <Panel>
+        {Object.keys(categories).map((name) => (
+          <>
+            <PanelHeadline
+              name={name}
+              onClick={() => toggleList(name)}
+              categories={categories}
+              countTasks={countTasks(name)}
+              countUnresolvedTasks={countUnresolvedTasks(name)}
+            />
+            {categories[name] &&
+              getTasksByCategories(name).map((todo) => (
+                <TodoItem
+                  key={todo.id}
+                  changeTodo={changeTodo}
+                  todo={todo}
+                  deleteTask={deleteTask}
+                />
+              ))}
+          </>
+        ))}
 
-      {/* <input
+        {/* <input
         type="text"
         name="addTask"
         value={inputValue}
@@ -185,18 +187,19 @@ function App() {
         onKeyPress={(e) => e.key === "Enter" && handleAddTask()}
         className='task'
       /> */}
-      {/* <input
+        {/* <input
         type="text"
         name="addTask"
         ref={inputNameRef}
         onKeyPress={(e) => e.key === "Enter" && handleAddTask()}
       /> */}
-      <AddTask handleAddTask={handleAddTask} inputNameRef={inputNameRef} />
-      <AddCategory
-        inputCategoriesRef={inputCategoriesRef}
-        handleAddCategory={handleAddCategory}
-      />
-    </Panel>
+        <AddTask handleAddTask={handleAddTask} inputNameRef={inputNameRef} />
+        <AddCategory
+          inputCategoriesRef={inputCategoriesRef}
+          handleAddCategory={handleAddCategory}
+        />
+      </Panel>
+    </Context.Provider>
   );
 }
 
