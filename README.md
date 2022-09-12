@@ -1,6 +1,6 @@
 # Getting Started with Create React App
+web application page - https://mergen99.github.io/Todos/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
